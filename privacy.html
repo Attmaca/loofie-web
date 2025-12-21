@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası - Loofie</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+    <!-- Fonts & Styles (Same as Index) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        brand: { purple: '#6B42C0', teal: '#00D2C1', dark: '#0F1115' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0F1115;
+            color: white;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body class="antialiased pb-20">
+
+    <!-- Simple Nav -->
+    <nav class="py-6 border-b border-white/5 bg-[#0F1115]/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <img src="assets/images/logo.png" alt="Logo" class="w-8 h-8">
+                <span class="font-bold text-xl">Loofie</span>
+            </a>
+            <a href="index.html" class="text-sm text-gray-400 hover:text-white transition-colors">Ana Sayfaya Dön</a>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="container mx-auto px-6 pt-16 max-w-4xl">
+        <div class="mb-10">
+            <h1
+                class="text-4xl font-bold mb-4 bg-gradient-to-r from-brand-purple to-brand-teal bg-clip-text text-transparent inline-block">
+                Gizlilik Politikası</h1>
+            <p class="text-gray-400">Son Güncelleme: 21 Aralık 2025</p>
+        </div>
+
+        <div class="glass-card p-8 md:p-12 rounded-3xl space-y-8 text-gray-300 leading-relaxed">
+            <section>
+                <h2 class="text-xl font-bold text-white mb-3">1. Giriş</h2>
+                <p>Loofie ("biz", "bizim" veya "uygulama") olarak gizliliğinize önem veriyoruz. Bu Gizlilik Politikası,
+                    uygulamamızı kullandığınızda bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu
+                    açıklar.</p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-white mb-3">2. Toplanan Bilgiler</h2>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>Hesap Bilgileri:</strong> Uygulamaya kaydolurken sağladığınız e-posta adresi ve
+                        kullanıcı adı.</li>
+                    <li><strong>Kullanım Verileri:</strong> Pomodoro sayaç süreleri, tamamlanan hedefler ve uygulama içi
+                        etkinlikler (anonim olarak).</li>
+                    <li><strong>Cihaz Bilgileri:</strong> Cihaz modeli, işletim sistemi sürümü gibi teknik veriler (hata
+                        ayıklama için).</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-white mb-3">3. Verilerin Kullanımı</h2>
+                <p>Topladığımız verileri şu amaçlarla kullanırız:</p>
+                <ul class="list-disc pl-5 space-y-2 mt-2">
+                    <li>Hizmetlerimizi sağlamak ve iyileştirmek.</li>
+                    <li>Kişiselleştirilmiş deneyim sunmak (örneğin, çalışma istatistikleri).</li>
+                    <li>Hesap güvenliğini sağlamak.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-white mb-3">4. Veri Güvenliği</h2>
+                <p>Verilerinizi korumak için endüstri standardı güvenlik önlemleri (SSL şifreleme, güvenli sunucular)
+                    kullanıyoruz. Ancak, internet üzerinden yapılan hiçbir iletimin %100 güvenli olmadığını unutmayın.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-white mb-3">5. İletişim</h2>
+                <p>Gizlilik politikamızla ilgili sorularınız için <a href="mailto:support@loofie.app"
+                        class="text-brand-teal hover:underline">support@loofie.app</a> adresinden bizimle iletişime
+                    geçebilirsiniz.</p>
+            </section>
+        </div>
+    </main>
+
+</body>
+
+</html>
