@@ -31,24 +31,20 @@ const translations = {
         "footer.rights": "Loofie © 2025",
         "footer.privacy": "Gizlilik",
         "footer.support": "Destek & Öneri",
+        
+        // Privacy Policy (Updated)
         "privacy.title": "Gizlilik Politikası",
+        "privacy.subtitle": "Loofie (\"biz\", \"bizim\" veya \"Uygulama\") olarak gizliliğinize en üst düzeyde önem veriyoruz. Bu politika, kişisel verilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu şeffaf bir şekilde açıklar.",
         "privacy.date": "Son Güncelleme: 21 Aralık 2025",
-        "privacy.back": "Ana Sayfaya Dön",
-        "privacy.intro.title": "1. Giriş",
-        "privacy.intro.text": "Loofie (\"biz\", \"bizim\" veya \"uygulama\") olarak gizliliğinize önem veriyoruz. Bu Gizlilik Politikası, uygulamamızı kullandığınızda bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar.",
-        "privacy.collection.title": "2. Toplanan Bilgiler",
-        "privacy.collection.list1": "<strong>Hesap Bilgileri:</strong> Uygulamaya kaydolurken sağladığınız e-posta adresi ve kullanıcı adı.",
-        "privacy.collection.list2": "<strong>Kullanım Verileri:</strong> Pomodoro sayaç süreleri, tamamlanan hedefler ve uygulama içi etkinlikler (anonim olarak).",
-        "privacy.collection.list3": "<strong>Cihaz Bilgileri:</strong> Cihaz modeli, işletim sistemi sürümü gibi teknik veriler (hata ayıklama için).",
-        "privacy.usage.title": "3. Verilerin Kullanımı",
-        "privacy.usage.text": "Topladığımız verileri şu amaçlarla kullanırız:",
-        "privacy.usage.list1": "Hizmetlerimizi sağlamak ve iyileştirmek.",
-        "privacy.usage.list2": "Kişiselleştirilmiş deneyim sunmak (örneğin, çalışma istatistikleri).",
-        "privacy.usage.list3": "Hesap güvenliğini sağlamak.",
+        "privacy.back": "Ana Sayfa",
+        "privacy.collection.title": "1. Topladığımız Bilgiler",
+        "privacy.usage.title": "2. Bilgilerinizi Nasıl Kullanıyoruz?",
+        "privacy.thirdparty.title": "3. Üçüncü Taraf Hizmetler",
         "privacy.security.title": "4. Veri Güvenliği",
-        "privacy.security.text": "Verilerinizi korumak için endüstri standardı güvenlik önlemleri (SSL şifreleme, güvenli sunucular) kullanıyoruz. Ancak, internet üzerinden yapılan hiçbir iletimin %100 güvenli olmadığını unutmayın.",
-        "privacy.contact.title": "5. İletişim",
-        "privacy.contact.text": "Gizlilik politikamızla ilgili sorularınız için <a href=\"mailto:support@loofie.app\" class=\"text-brand-teal hover:underline\">support@loofie.app</a> adresinden bizimle iletişime geçebilirsiniz."
+        "privacy.security.text": "Verilerinizi, endüstri standardı şifreleme yöntemleri (SSL/TLS) ile korunmaktadır. Sunucularımız, sıkı güvenlik protokollerine sahip veri merkezlerinde barındırılmaktadır. Ancak dijital dünyada %100 güvenliğin garanti edilemeyeceğini hatırlatır, hesabınızın güvenliği için güçlü şifreler kullanmanızı öneririz.",
+        "privacy.rights.title": "5. Haklarınız",
+        "privacy.contact.title": "6. İletişim",
+        "privacy.contact.text": "Gizlilik politikamızla ilgili sorularınız, önerileriniz veya veri talepleriniz için bize ulaşmaktan çekinmeyin:"
     },
     en: {
         "nav.contact": "Contact Us",
@@ -82,24 +78,20 @@ const translations = {
         "footer.rights": "Loofie © 2025",
         "footer.privacy": "Privacy",
         "footer.support": "Support & Suggestions",
+
+        // Privacy Policy (Updated)
         "privacy.title": "Privacy Policy",
+        "privacy.subtitle": "At Loofie (\"we\", \"us\", or \"the App\"), we prioritize your privacy. This policy transparently explains how your personal data is collected, used, and protected.",
         "privacy.date": "Last Updated: December 21, 2025",
-        "privacy.back": "Back to Home",
-        "privacy.intro.title": "1. Introduction",
-        "privacy.intro.text": "At Loofie (\"we\", \"us\", or \"the application\"), we value your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our application.",
-        "privacy.collection.title": "2. Information Collected",
-        "privacy.collection.list1": "<strong>Account Information:</strong> Email address and username provided when registering for the application.",
-        "privacy.collection.list2": "<strong>Usage Data:</strong> Pomodoro timer durations, completed goals, and in-app activities (anonymously).",
-        "privacy.collection.list3": "<strong>Device Information:</strong> Technical data such as device model, operating system version (for debugging).",
-        "privacy.usage.title": "3. Use of Data",
-        "privacy.usage.text": "We use the data we collect for the following purposes:",
-        "privacy.usage.list1": "To provide and improve our services.",
-        "privacy.usage.list2": "To provide a personalized experience (e.g., study statistics).",
-        "privacy.usage.list3": "To ensure account security.",
+        "privacy.back": "Home",
+        "privacy.collection.title": "1. Information Collected",
+        "privacy.usage.title": "2. How We Use Your Data?",
+        "privacy.thirdparty.title": "3. Third Party Services",
         "privacy.security.title": "4. Data Security",
-        "privacy.security.text": "We use industry-standard security measures (SSL encryption, secure servers) to protect your data. However, please note that no transmission over the internet is 100% secure.",
-        "privacy.contact.title": "5. Contact",
-        "privacy.contact.text": "For questions about our privacy policy, you can contact us at <a href=\"mailto:support@loofie.app\" class=\"text-brand-teal hover:underline\">support@loofie.app</a>."
+        "privacy.security.text": "Your data is protected by industry-standard encryption methods (SSL/TLS). Our servers are hosted in data centers with strict security protocols. However, please note that no digital transmission is 100% secure, and we recommend using strong passwords for your account security.",
+        "privacy.rights.title": "5. Your Rights",
+        "privacy.contact.title": "6. Contact",
+        "privacy.contact.text": "Feel free to contact us with any questions, suggestions, or data requests regarding our privacy policy:"
     }
 };
 
