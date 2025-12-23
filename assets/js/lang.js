@@ -31,7 +31,7 @@ const translations = {
         "footer.rights": "Loofie © 2025",
         "footer.privacy": "Gizlilik",
         "footer.support": "Destek & Öneri",
-        
+
         // Privacy Policy (Updated)
         "privacy.title": "Gizlilik Politikası",
         "privacy.subtitle": "Loofie (\"biz\", \"bizim\" veya \"Uygulama\") olarak gizliliğinize en üst düzeyde önem veriyoruz. Bu politika, kişisel verilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu şeffaf bir şekilde açıklar.",
@@ -44,7 +44,26 @@ const translations = {
         "privacy.security.text": "Verilerinizi, endüstri standardı şifreleme yöntemleri (SSL/TLS) ile korunmaktadır. Sunucularımız, sıkı güvenlik protokollerine sahip veri merkezlerinde barındırılmaktadır. Ancak dijital dünyada %100 güvenliğin garanti edilemeyeceğini hatırlatır, hesabınızın güvenliği için güçlü şifreler kullanmanızı öneririz.",
         "privacy.rights.title": "5. Haklarınız",
         "privacy.contact.title": "6. İletişim",
-        "privacy.contact.text": "Gizlilik politikamızla ilgili sorularınız, önerileriniz veya veri talepleriniz için bize ulaşmaktan çekinmeyin:"
+        "privacy.collection.account.title": "Hesap Bilgileri",
+        "privacy.collection.account.text": "Uygulamaya kayıt olurken sağladığınız e-posta adresi, kullanıcı adı ve isteğe bağlı profil fotoğrafı. Google ile giriş yapmanız durumunda, temel profil bilgileriniz (isim, e-posta, profil resmi) alınır.",
+        "privacy.collection.usage.title": "Kullanım Verileri",
+        "privacy.collection.usage.text": "Pomodoro odaklanma süreleriniz, hedefleri tamamlama durumunuz, uygulama içi etkileşimleriniz ve oluşturduğunuz çalışma grupları. Bu veriler, size istatistikler sunmak için kullanılır.",
+        "privacy.collection.device.title": "Teknik Veriler",
+        "privacy.collection.device.text": "Cihaz modeli, işletim sistemi sürümü, IP adresi ve çökme raporları. Bu veriler, uygulama performansını izlemek ve hataları gidermek için anonim olarak işlenir.",
+        "privacy.usage.list1": "<strong>Hizmet Sunumu:</strong> Hesabınızı oluşturmak, verilerinizi cihazlar arasında senkronize etmek ve temel özellikleri sağlamak.",
+        "privacy.usage.list2": "<strong>Kişiselleştirme:</strong> Size özel çalışma istatistikleri, başarı rozetleri ve AI destekli öneriler sunmak.",
+        "privacy.usage.list3": "<strong>İletişim:</strong> Önemli güncellemeler, güvenlik uyarıları veya (izninizle) yeni özellikler hakkında sizi bilgilendirmek.",
+        "privacy.usage.list4": "<strong>Analiz ve İyileştirme:</strong> Uygulamanın hangi özelliklerinin daha fazla kullanıldığını anlamak ve kullanıcı deneyimini geliştirmek.",
+        "privacy.thirdparty.text": "Verileriniz satılmaz. Ancak, altyapı ve analiz hizmetleri için güvenilir üçüncü taraf sağlayıcılarla çalışıyoruz:",
+        "privacy.thirdparty.firebase.title": "Google Firebase",
+        "privacy.thirdparty.firebase.text": "Veritabanı ve Kimlik Doğrulama",
+        "privacy.thirdparty.analytics.title": "Google Analytics",
+        "privacy.thirdparty.analytics.text": "Anonim Kullanım Analizi",
+        "privacy.rights.text": "Kişisel verileriniz üzerinde tam kontrole sahipsiniz. Uygulama ayarları üzerinden veya bizimle iletişime geçerek şunları yapabilirsiniz:",
+        "privacy.rights.list1": "Verilerinize erişme ve kopyasını alma",
+        "privacy.rights.list2": "Hatalı bilgileri düzeltme",
+        "privacy.rights.list3": "Hesabınızı ve verilerinizi silme",
+        "privacy.rights.list4": "İşleme faaliyetlerine itiraz etme"
     },
     en: {
         "nav.contact": "Contact Us",
@@ -91,7 +110,27 @@ const translations = {
         "privacy.security.text": "Your data is protected by industry-standard encryption methods (SSL/TLS). Our servers are hosted in data centers with strict security protocols. However, please note that no digital transmission is 100% secure, and we recommend using strong passwords for your account security.",
         "privacy.rights.title": "5. Your Rights",
         "privacy.contact.title": "6. Contact",
-        "privacy.contact.text": "Feel free to contact us with any questions, suggestions, or data requests regarding our privacy policy:"
+        "privacy.contact.text": "Feel free to contact us with any questions, suggestions, or data requests regarding our privacy policy:",
+        "privacy.collection.account.title": "Account Information",
+        "privacy.collection.account.text": "Email address, username provided during registration, and optional profile photo. If logging in with Google, basic profile info (name, email, profile pic) is retrieved.",
+        "privacy.collection.usage.title": "Usage Data",
+        "privacy.collection.usage.text": "Pomodoro focus durations, goal completion status, in-app interactions, and study groups you create. This data is used to provide you with statistics.",
+        "privacy.collection.device.title": "Technical Data",
+        "privacy.collection.device.text": "Device model, OS version, IP address, and crash reports. This data is processed anonymously to monitor app performance and troubleshoot errors.",
+        "privacy.usage.list1": "<strong>Service Delivery:</strong> To create your account, sync your data across devices, and provide core features.",
+        "privacy.usage.list2": "<strong>Personalization:</strong> To provide personalized study stats, achievement badges, and AI-powered recommendations.",
+        "privacy.usage.list3": "<strong>Communication:</strong> To inform you about important updates, security alerts, or (with permission) new features.",
+        "privacy.usage.list4": "<strong>Analysis & Improvement:</strong> To understand which features are used most and improve user experience.",
+        "privacy.thirdparty.text": "Your data is not sold. However, we work with trusted third-party providers for infrastructure and analytics services:",
+        "privacy.thirdparty.firebase.title": "Google Firebase",
+        "privacy.thirdparty.firebase.text": "Database and Authentication",
+        "privacy.thirdparty.analytics.title": "Google Analytics",
+        "privacy.thirdparty.analytics.text": "Anonymous Usage Analysis",
+        "privacy.rights.text": "You have full control over your personal data. You can do the following through app settings or by contacting us:",
+        "privacy.rights.list1": "Access and obtain a copy of your data",
+        "privacy.rights.list2": "Correct inaccurate information",
+        "privacy.rights.list3": "Delete your account and data",
+        "privacy.rights.list4": "Object to processing activities"
     }
 };
 

@@ -154,7 +154,8 @@
                         <div class="space-y-4">
                             <!-- Account Info -->
                             <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                                <h3 class="text-white font-semibold mb-2 flex items-center gap-2">
+                                <h3 class="text-white font-semibold mb-2 flex items-center gap-2"
+                                    data-i18n="privacy.collection.account.title">
                                     <svg class="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -163,7 +164,7 @@
                                     </svg>
                                     Hesap Bilgileri
                                 </h3>
-                                <p class="text-gray-400 text-sm">
+                                <p class="text-gray-400 text-sm" data-i18n="privacy.collection.account.text">
                                     Uygulamaya kayıt olurken sağladığınız e-posta adresi, kullanıcı adı ve isteğe bağlı
                                     profil fotoğrafı. Google ile giriş yapmanız durumunda, temel profil bilgileriniz
                                     (isim, e-posta, profil resmi) alınır.
@@ -171,7 +172,8 @@
                             </div>
                             <!-- Usage Data -->
                             <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                                <h3 class="text-white font-semibold mb-2 flex items-center gap-2">
+                                <h3 class="text-white font-semibold mb-2 flex items-center gap-2"
+                                    data-i18n="privacy.collection.usage.title">
                                     <svg class="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -180,7 +182,7 @@
                                     </svg>
                                     Kullanım Verileri
                                 </h3>
-                                <p class="text-gray-400 text-sm">
+                                <p class="text-gray-400 text-sm" data-i18n="privacy.collection.usage.text">
                                     Pomodoro odaklanma süreleriniz, hedefleri tamamlama durumunuz, uygulama içi
                                     etkileşimleriniz ve oluşturduğunuz çalışma grupları. Bu veriler, size istatistikler
                                     sunmak için kullanılır.
@@ -188,7 +190,8 @@
                             </div>
                             <!-- Device Data -->
                             <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                                <h3 class="text-white font-semibold mb-2 flex items-center gap-2">
+                                <h3 class="text-white font-semibold mb-2 flex items-center gap-2"
+                                    data-i18n="privacy.collection.device.title">
                                     <svg class="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -197,7 +200,7 @@
                                     </svg>
                                     Teknik Veriler
                                 </h3>
-                                <p class="text-gray-400 text-sm">
+                                <p class="text-gray-400 text-sm" data-i18n="privacy.collection.device.text">
                                     Cihaz modeli, işletim sistemi sürümü, IP adresi ve çökme raporları. Bu veriler,
                                     uygulama performansını izlemek ve hataları gidermek için anonim olarak işlenir.
                                 </p>
@@ -221,13 +224,17 @@
                         <h2 class="text-xl font-bold text-white mb-3" data-i18n="privacy.usage.title">2. Bilgilerinizi
                             Nasıl Kullanıyoruz?</h2>
                         <ul class="space-y-3 text-gray-300 list-disc list-inside marker:text-brand-purple text-sm">
-                            <li><strong>Hizmet Sunumu:</strong> Hesabınızı oluşturmak, verilerinizi cihazlar arasında
+                            <li data-i18n="privacy.usage.list1"><strong>Hizmet Sunumu:</strong> Hesabınızı oluşturmak,
+                                verilerinizi cihazlar arasında
                                 senkronize etmek ve temel özellikleri sağlamak.</li>
-                            <li><strong>Kişiselleştirme:</strong> Size özel çalışma istatistikleri, başarı rozetleri ve
+                            <li data-i18n="privacy.usage.list2"><strong>Kişiselleştirme:</strong> Size özel çalışma
+                                istatistikleri, başarı rozetleri ve
                                 AI destekli öneriler sunmak.</li>
-                            <li><strong>İletişim:</strong> Önemli güncellemeler, güvenlik uyarıları veya (izninizle)
+                            <li data-i18n="privacy.usage.list3"><strong>İletişim:</strong> Önemli güncellemeler,
+                                güvenlik uyarıları veya (izninizle)
                                 yeni özellikler hakkında sizi bilgilendirmek.</li>
-                            <li><strong>Analiz ve İyileştirme:</strong> Uygulamanın hangi özelliklerinin daha fazla
+                            <li data-i18n="privacy.usage.list4"><strong>Analiz ve İyileştirme:</strong> Uygulamanın
+                                hangi özelliklerinin daha fazla
                                 kullanıldığını anlamak ve kullanıcı deneyimini geliştirmek.</li>
                         </ul>
                     </div>
@@ -248,7 +255,7 @@
                     <div>
                         <h2 class="text-xl font-bold text-white mb-3" data-i18n="privacy.thirdparty.title">3. Üçüncü
                             Taraf Hizmetler</h2>
-                        <p class="text-gray-300 text-sm mb-4">
+                        <p class="text-gray-300 text-sm mb-4" data-i18n="privacy.thirdparty.text">
                             Verileriniz satılmaz. Ancak, altyapı ve analiz hizmetleri için güvenilir üçüncü taraf
                             sağlayıcılarla çalışıyoruz:
                         </p>
@@ -258,8 +265,10 @@
                                     class="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-xs font-bold text-white">
                                     FB</div>
                                 <div>
-                                    <h4 class="text-white text-sm font-bold">Google Firebase</h4>
-                                    <p class="text-xs text-gray-400">Veritabanı ve Kimlik Doğrulama</p>
+                                    <h4 class="text-white text-sm font-bold"
+                                        data-i18n="privacy.thirdparty.firebase.title">Google Firebase</h4>
+                                    <p class="text-xs text-gray-400" data-i18n="privacy.thirdparty.firebase.text">
+                                        Veritabanı ve Kimlik Doğrulama</p>
                                 </div>
                             </div>
                             <div class="bg-white/5 p-3 rounded-lg border border-white/5 flex items-center gap-3">
@@ -267,8 +276,10 @@
                                     class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold">
                                     GA</div>
                                 <div>
-                                    <h4 class="text-white text-sm font-bold">Google Analytics</h4>
-                                    <p class="text-xs text-gray-400">Anonim Kullanım Analizi</p>
+                                    <h4 class="text-white text-sm font-bold"
+                                        data-i18n="privacy.thirdparty.analytics.title">Google Analytics</h4>
+                                    <p class="text-xs text-gray-400" data-i18n="privacy.thirdparty.analytics.text">
+                                        Anonim Kullanım Analizi</p>
                                 </div>
                             </div>
                         </div>
@@ -314,21 +325,21 @@
                     <div>
                         <h2 class="text-xl font-bold text-white mb-3" data-i18n="privacy.rights.title">5. Haklarınız
                         </h2>
-                        <p class="text-gray-300 text-sm mb-3">
+                        <p class="text-gray-300 text-sm mb-3" data-i18n="privacy.rights.text">
                             Kişisel verileriniz üzerinde tam kontrole sahipsiniz. Uygulama ayarları üzerinden veya
                             bizimle iletişime geçerek şunları yapabilirsiniz:
                         </p>
                         <ul class="grid md:grid-cols-2 gap-2 text-sm text-gray-400">
-                            <li class="flex items-center gap-2"><span
+                            <li class="flex items-center gap-2" data-i18n="privacy.rights.list1"><span
                                     class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
                                 Verilerinize erişme ve kopyasını alma</li>
-                            <li class="flex items-center gap-2"><span
+                            <li class="flex items-center gap-2" data-i18n="privacy.rights.list2"><span
                                     class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
                                 Hatalı bilgileri düzeltme</li>
-                            <li class="flex items-center gap-2"><span
+                            <li class="flex items-center gap-2" data-i18n="privacy.rights.list3"><span
                                     class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
                                 Hesabınızı ve verilerinizi silme</li>
-                            <li class="flex items-center gap-2"><span
+                            <li class="flex items-center gap-2" data-i18n="privacy.rights.list4"><span
                                     class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
                                 İşleme faaliyetlerine itiraz etme</li>
                         </ul>
