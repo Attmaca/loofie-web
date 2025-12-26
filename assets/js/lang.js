@@ -159,7 +159,15 @@ function setLanguage(lang) {
         "chat_screen": { tr: "assets/images/chat_screen.png", en: "assets/images/chat_screen_en.png" },
         "ai_studio": { tr: "assets/images/ai_studio.png", en: "assets/images/ai_studio_en.png" },
         "ai_chat": { tr: "assets/images/ai_chat.png", en: "assets/images/ai_chat_en.png" },
-        "ai_exam": { tr: "assets/images/ai_exam.png", en: "assets/images/ai_exam.png" }
+        "ai_exam": { tr: "assets/images/ai_exam.png", en: "assets/images/ai_exam.png" },
+        "app_store": {
+            tr: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Download_on_the_App_Store_Badge_TR.svg",
+            en: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+        },
+        "google_play": {
+            tr: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Google_Play_Store_badge_TR.svg",
+            en: "https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+        }
     };
 
     document.querySelectorAll('[data-img]').forEach(img => {
