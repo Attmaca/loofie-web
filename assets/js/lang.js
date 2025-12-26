@@ -161,12 +161,12 @@ function setLanguage(lang) {
         "ai_chat": { tr: "assets/images/ai_chat.png", en: "assets/images/ai_chat_en.png" },
         "ai_exam": { tr: "assets/images/ai_exam.png", en: "assets/images/ai_exam.png" },
         "app_store": {
-            tr: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Download_on_the_App_Store_Badge_TR.svg",
-            en: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+            tr: "assets/images/app_store_en.svg", // Fallback to EN SVG as authentic TR SVG is inconsistent
+            en: "assets/images/app_store_en.svg"
         },
         "google_play": {
-            tr: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Google_Play_Store_badge_TR.svg",
-            en: "https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+            tr: "assets/images/google_play_tr.png",
+            en: "assets/images/google_play_en.svg"
         }
     };
 
