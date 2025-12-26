@@ -1,7 +1,7 @@
 const translations = {
     tr: {
         "nav.contact": "Bize Ulaşın",
-        "nav.download": "Uygulamayı İndir",
+        "nav.login": "Giriş Yap",
         "hero.badge": "Öğrenciler İçin Geliştirildi",
         "hero.title": "Hayallerine Giden Yol<br><span class=\"text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-teal text-glow\">Disiplinle Başlar.</span>",
         "hero.subtitle": "Sınav maratonunda (YKS, LGS) kaybolma. Loofie; rutinlerini planlar, seni motive eder ve gelişimin için gereken her şeyi tek bir ekranda sunar.",
@@ -67,7 +67,7 @@ const translations = {
     },
     en: {
         "nav.contact": "Contact Us",
-        "nav.download": "Download App",
+        "nav.login": "Log In",
         "hero.badge": "Developed for Students",
         "hero.title": "The Road to Dreams<br><span class=\"text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-teal text-glow\">Starts with Discipline.</span>",
         "hero.subtitle": "Don't get lost in the exam marathon. Loofie plans your routines, motivates you, and offers everything you need for your development on a single screen.",
