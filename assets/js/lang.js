@@ -4,11 +4,11 @@ const translations = {
         "nav.login": "Giriş Yap",
         "hero.badge": "Öğrenciler İçin Geliştirildi",
         "hero.title": "Hayallerine Giden Yol<br><span class=\"text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-teal text-glow\">Disiplinle Başlar.</span>",
-        "hero.subtitle": "Sınav maratonunda (YKS, LGS) kaybolma. Loofie; rutinlerini planlar, seni motive eder ve gelişimin için gereken her şeyi tek bir ekranda sunar.",
+        "hero.subtitle": "Sınav maratonunda kaybolma. Loofie; rutinlerini planlar, seni motive eder ve gelişimin için gereken her şeyi tek bir ekranda sunar.",
         "features.daily": "Günlük Rutinler",
         "features.daily.desc": "Günün önceliklerini belirle, tik at, ilerlemeni gör. Kaos yok, düzen var.",
         "features.exam": "Sınav Geri Sayımı",
-        "features.exam.desc": "Önemli tarihler (YKS, Yazılılar) gözünün önünde olsun. Zamanı yönet.",
+        "features.exam.desc": "Önemli tarihler ve hedeflerin gözünün önünde olsun. Zamanı yönet.",
         "features.buddies": "Çalışma Arkadaşları",
         "features.buddies.desc": "Yalnız değilsin. Arkadaşlarınla gruplar kur, rekabet et ve birlikte başar.",
         "showcase.title": "Kişisel Gelişiminde <span class=\"text-brand-purple\">Yeni Bir Seviye</span>",
@@ -153,13 +153,13 @@ function setLanguage(lang) {
 
     // Update images
     const screenImages = {
-        "hero_screen": { tr: "assets/images/hero_screen.png", en: "assets/images/hero_screen_en.png" },
+        "hero_screen": { tr: "assets/images/mockup_home.png", en: "assets/images/mockup_home.png" },
         "stats_screen": { tr: "assets/images/stats_screen.png", en: "assets/images/stats_screen_en.png" },
         "focus_screen": { tr: "assets/images/focus_screen.png", en: "assets/images/focus_screen_en.png" },
-        "chat_screen": { tr: "assets/images/chat_screen.png", en: "assets/images/chat_screen_en.png" },
-        "ai_studio": { tr: "assets/images/ai_studio.png", en: "assets/images/ai_studio_en.png" },
+        "chat_screen": { tr: "assets/images/mockup_live.png", en: "assets/images/mockup_live.png" },
+        "ai_studio": { tr: "assets/images/mockup_studio.png", en: "assets/images/mockup_studio.png" },
         "ai_chat": { tr: "assets/images/ai_chat.png", en: "assets/images/ai_chat_en.png" },
-        "ai_exam": { tr: "assets/images/ai_exam.png", en: "assets/images/ai_exam.png" },
+        "ai_exam": { tr: "assets/images/mockup_exam.png", en: "assets/images/mockup_exam.png" },
         "app_store": {
             tr: "assets/images/app_store_en.svg", // Fallback to EN SVG as authentic TR SVG is inconsistent
             en: "assets/images/app_store_en.svg"

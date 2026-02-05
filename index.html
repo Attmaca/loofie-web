@@ -12,7 +12,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Animate On Scroll -->
@@ -25,13 +26,20 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
                     colors: {
                         brand: {
-                            purple: '#6B42C0',
-                            teal: '#00D2C1',
-                            dark: '#0F1115'
+                            purple: '#7C3AED',   /* Hyper Violet */
+                            lime: '#CCF381',     /* Electric Lime */
+                            void: '#050505',     /* Deep Void */
+                            teal: '#00D2C1'      /* Legacy Teal */
                         }
+                    },
+                    backgroundImage: {
+                        'void-gradient': 'linear-gradient(135deg, #050505 0%, #0F111A 100%)',
                     }
                 }
             }
@@ -39,26 +47,90 @@
     </script>
     <style>
         body {
-            background-color: #0F1115;
-            color: white;
+            /* Anti-AI: "Midnight Academy" - Deep Slate (Slate 900). */
+            background-color: #0F172A;
+            /* Simple, Clean Background (Aurora Glow only) */
+            background-image:
+                radial-gradient(circle at 50% 0%, #1E1B4B 0%, transparent 60%);
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            color: #F8FAFC;
             overflow-x: hidden;
         }
 
+        /* Senior Touch: Consistent Selection */
+        ::selection {
+            background-color: #C084FC;
+            color: #FFFFFF;
+        }
+
         .glass-nav {
-            background: rgba(15, 17, 21, 0.8);
-            backdrop-filter: blur(20px);
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
+        /* Senior Design: Navy Glass Cards + Spotlight */
         .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
+            background: rgba(30, 41, 59, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .text-glow {
-            text-shadow: 0 0 40px rgba(107, 66, 192, 0.6);
+        /* Spotlight Gradient Overlay */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                    rgba(255, 255, 255, 0.08),
+                    transparent 40%);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Ensure content is above spotlight */
+        .glass-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Typography Scale */
+        .font-display {
+            letter-spacing: -0.02em;
+            /* Normal tight tracking */
+        }
+
+        /* Revert to solid accent for headings */
+        .tech-glow {
+            text-shadow: 0 0 30px rgba(124, 58, 237, 0.3);
+            /* Purple glow return */
+            color: #A78BFA;
+            /* Violet 400 */
+        }
+
+        .text-gray-400 {
+            color: #94A3B8 !important;
+            /* Slate 400 */
+        }
+
+        /* Tech Glow */
+        .tech-glow {
+            text-shadow: 0 0 20px rgba(204, 243, 129, 0.3);
         }
 
         .blob {
@@ -79,6 +151,19 @@
             50% {
                 transform: translate(20px, -20px);
             }
+        }
+
+        #global-spotlight {
+            background: radial-gradient(100px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                    rgba(139, 92, 246, 0.25),
+                    /* Opacity 0.25 */
+                    transparent 50%);
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        mix-blend-mode: screen;
+        /* Trying screen blend mode for better glow on dark background */
         }
     </style>
 </head>
@@ -109,22 +194,25 @@
         </div>
     </div>
 
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="blob bg-brand-purple w-[600px] h-[600px] top-[-20%] left-[-10%] rounded-full"></div>
-        <div
-            class="blob bg-brand-teal w-[500px] h-[500px] bottom-[-10%] right-[-10%] rounded-full animation-delay-2000">
-        </div>
-    </div>
+    <!-- Blobs removed for cleaner look -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none"></div>
 
     <!-- Nav -->
     <nav class="fixed w-full z-50 glass-nav">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <!-- Logo removed as requested -->
-                <span
-                    class="text-xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Loofie</span>
+                <span class="text-xl font-bold text-white">Loofie</span>
             </div>
-            <!-- Login button removed -->
+
+            <!-- Nav Links (Moved from Footer) -->
+            <div class="flex items-center gap-6">
+                <a href="privacy.html" class="text-sm text-gray-400 hover:text-white transition-colors font-medium"
+                    data-i18n="footer.privacy">Gizlilik</a>
+                <a href="mailto:support@loofie.app"
+                    class="text-sm text-gray-400 hover:text-white transition-colors font-medium"
+                    data-i18n="footer.support">Destek & Öneri</a>
+            </div>
         </div>
     </nav>
 
@@ -134,21 +222,22 @@
 
             <!-- Text -->
             <div class="lg:w-1/2 text-center lg:text-left z-10" data-aos="fade-up">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card mb-6 border-brand-teal/30">
-                    <span class="text-xs font-bold text-brand-teal tracking-wide uppercase"
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card mb-6 border-brand-lime/30">
+                    <span class="text-xs font-bold text-brand-lime tracking-wide uppercase"
                         data-i18n="hero.badge">Öğrenciler İçin
                         Geliştirildi</span>
                 </div>
 
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6" data-i18n="hero.title">
+                <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+                    data-i18n="hero.title">
                     Hayallerine Giden Yol<br>
                     <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-teal text-glow">Disiplinle
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-purple-400 tech-glow">Disiplinle
                         Başlar.</span>
                 </h1>
 
                 <p class="text-lg text-gray-400 mb-8 max-w-xl mx-auto lg:mx-0" data-i18n="hero.subtitle">
-                    Sınav maratonunda (YKS, LGS) kaybolma. Loofie; rutinlerini planlar, seni motive eder ve gelişimin
+                    Sınav maratonunda kaybolma. Loofie; rutinlerini planlar, seni motive eder ve gelişimin
                     için gereken her şeyi tek bir ekranda sunar.
                 </p>
 
@@ -164,14 +253,31 @@
             </div>
 
             <!-- Hero Image (Home Screen) -->
-            <div class="lg:w-1/2 relative flex justify-center perspective-1000" data-aos="zoom-out"
-                data-aos-delay="200">
+            <div class="lg:w-1/2 relative flex justify-center perspective-1000" data-aos="fade-left"
+                data-aos-delay="200" data-aos-duration="1200">
+                <!-- iPhone 15 Pro Frame -->
                 <div
-                    class="relative w-[300px] h-[600px] border-[8px] border-gray-900 rounded-[3rem] bg-gray-900 shadow-2xl rotate-[-3deg] hover:rotate-0 transition-transform duration-700 z-10 overflow-hidden">
-                    <!-- Crop status bar: scale up slightly and shift up -->
-                    <img src="assets/images/hero_screen.png" alt="Loofie Ana Ekran" data-img="hero_screen"
-                        class="w-full h-[calc(100%+40px)] -mt-[40px] object-cover">
+                    class="relative w-[300px] h-[620px] bg-gray-900 rounded-[3.5rem] shadow-2xl ring-4 ring-gray-800 rotate-[-3deg] hover:rotate-0 transition-transform duration-700 z-10">
+                    <!-- Bezel -->
+                    <div class="absolute inset-0 bg-black rounded-[3.5rem] border-[8px] border-gray-800 shadow-inner">
+                    </div>
+                    <!-- Screen Container -->
+                    <div class="absolute inset-[8px] bg-black rounded-[3rem] overflow-hidden">
+                        <!-- Dynamic Island -->
+                        <div
+                            class="absolute top-4 left-1/2 -translate-x-1/2 w-[100px] h-[28px] bg-black rounded-full z-30">
+                        </div>
+                        <!-- Image -->
+                        <img src="assets/images/mockup_home.png" alt="Loofie Ana Ekran" data-img="hero_screen"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <!-- Buttons -->
+                    <div class="absolute top-28 -left-[4px] w-[3px] h-8 bg-gray-700 rounded-l-md"></div>
+                    <div class="absolute top-44 -left-[4px] w-[3px] h-14 bg-gray-700 rounded-l-md"></div>
+                    <div class="absolute top-60 -left-[4px] w-[3px] h-14 bg-gray-700 rounded-l-md"></div>
+                    <div class="absolute top-48 -right-[4px] w-[3px] h-20 bg-gray-700 rounded-r-md"></div>
                 </div>
+
                 <!-- Decorative Elements -->
                 <div
                     class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-brand-purple/30 blur-[80px] rounded-full -z-10">
@@ -186,42 +292,54 @@
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="glass-card p-8 rounded-2xl text-center hover:bg-white/5 transition-colors"
                     data-aos="fade-up" data-aos-delay="0">
-                    <div
-                        class="w-12 h-12 mx-auto bg-brand-purple/20 rounded-xl flex items-center justify-center text-brand-purple mb-4">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
+                    <div class="relative w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-brand-lime/20 rounded-2xl blur-lg"></div>
+                        <div
+                            class="relative bg-gradient-to-br from-gray-800 to-gray-900 w-full h-full rounded-2xl flex items-center justify-center border border-brand-lime/30 group-hover:border-brand-lime/60 transition-colors">
+                            <svg class="w-8 h-8 text-brand-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                                </path>
+                            </svg>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-2" data-i18n="features.daily">Günlük Rutinler</h3>
+                    <h3 class="font-display text-xl font-bold mb-2" data-i18n="features.daily">Günlük Rutinler</h3>
                     <p class="text-gray-400 text-sm" data-i18n="features.daily.desc">Günün önceliklerini belirle, tik
                         at, ilerlemeni gör. Kaos yok,
                         düzen var.</p>
                 </div>
                 <div class="glass-card p-8 rounded-2xl text-center hover:bg-white/5 transition-colors"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div
-                        class="w-12 h-12 mx-auto bg-brand-teal/20 rounded-xl flex items-center justify-center text-brand-teal mb-4">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
+                    data-aos="fade-up" data-aos-delay="150">
+                    <div class="relative w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-brand-teal/20 rounded-2xl blur-lg"></div>
+                        <div
+                            class="relative bg-gradient-to-br from-gray-800 to-gray-900 w-full h-full rounded-2xl flex items-center justify-center border border-brand-teal/30 group-hover:border-brand-teal/60 transition-colors">
+                            <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-2" data-i18n="features.exam">Sınav Geri Sayımı</h3>
-                    <p class="text-gray-400 text-sm" data-i18n="features.exam.desc">Önemli tarihler (YKS, Yazılılar)
+                    <h3 class="font-display text-xl font-bold mb-2" data-i18n="features.exam">Sınav Geri Sayımı</h3>
+                    <p class="text-gray-400 text-sm" data-i18n="features.exam.desc">Önemli tarihler ve hedeflerin
                         gözünün önünde olsun. Zamanı
                         yönet.</p>
                 </div>
                 <div class="glass-card p-8 rounded-2xl text-center hover:bg-white/5 transition-colors"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div
-                        class="w-12 h-12 mx-auto bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-500 mb-4">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-blue-500/20 rounded-2xl blur-lg"></div>
+                        <div
+                            class="relative bg-gradient-to-br from-gray-800 to-gray-900 w-full h-full rounded-2xl flex items-center justify-center border border-blue-500/30 group-hover:border-blue-500/60 transition-colors">
+                            <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                </path>
+                            </svg>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-2" data-i18n="features.buddies">Çalışma Arkadaşları</h3>
+                    <h3 class="font-display text-xl font-bold mb-2" data-i18n="features.buddies">Çalışma Arkadaşları
+                    </h3>
                     <p class="text-gray-400 text-sm" data-i18n="features.buddies.desc">Yalnız değilsin. Arkadaşlarınla
                         gruplar kur, rekabet et ve birlikte
                         başar.</p>
@@ -234,8 +352,8 @@
     <section class="py-24 bg-black/50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4" data-i18n="showcase.title">Kişisel Gelişiminde <span
-                        class="text-brand-purple">Yeni
+                <h2 class="font-display text-3xl md:text-5xl font-bold mb-4" data-i18n="showcase.title">Kişisel
+                    Gelişiminde <span class="text-teal-300">Yeni
                         Bir Seviye</span></h2>
                 <p class="text-gray-400" data-i18n="showcase.subtitle">Verilerini analiz et, AI koçunla konuş ve
                     odaklanarak çalış.</p>
@@ -243,42 +361,58 @@
 
             <div class="grid lg:grid-cols-3 gap-12 items-center">
                 <!-- Image 1: Stats -->
-                <div class="flex flex-col items-center" data-aos="fade-right">
+                <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="0">
+                    <!-- Frame -->
                     <div
-                        class="w-[260px] h-[520px] border-[6px] border-gray-800 rounded-[2.5rem] overflow-hidden shadow-2xl mb-6">
-                        <img src="assets/images/stats_screen.png" data-img="stats_screen"
-                            class="w-full h-[calc(100%+40px)] -mt-[40px] object-cover">
+                        class="relative w-[270px] h-[560px] bg-gray-900 rounded-[3rem] shadow-2xl ring-2 ring-gray-700 mb-6">
+                        <div class="absolute inset-[6px] bg-black rounded-[2.6rem] overflow-hidden">
+                            <div
+                                class="absolute top-3 left-1/2 -translate-x-1/2 w-[80px] h-[24px] bg-black rounded-full z-30">
+                            </div>
+                            <img src="assets/images/stats_screen.png" data-img="stats_screen"
+                                class="w-full h-full object-cover">
+                        </div>
                     </div>
-                    <h4 class="text-xl font-bold" data-i18n="showcase.analysis">Detaylı Analiz</h4>
+                    <h4 class="font-display text-xl font-bold" data-i18n="showcase.analysis">Detaylı Analiz</h4>
                     <p class="text-sm text-gray-500 text-center px-4 mt-2" data-i18n="showcase.analysis.desc">Haftalık
-                        performansını, en verimli saatlerini
-                        ve rekor serini gör.</p>
+                        performansını, en verimli saatlerini ve rekor serini gör.</p>
                 </div>
 
                 <!-- Image 2: Focus (Center) -->
-                <div class="flex flex-col items-center lg:-mt-12" data-aos="fade-up">
+                <div class="flex flex-col items-center lg:-mt-12" data-aos="fade-up" data-aos-delay="150">
+                    <!-- Frame (Brand Teal) -->
                     <div
-                        class="w-[280px] h-[560px] border-[6px] border-brand-teal rounded-[2.5rem] overflow-hidden shadow-[0_0_50px_rgba(0,210,193,0.3)] mb-6">
-                        <img src="assets/images/focus_screen.png" data-img="focus_screen"
-                            class="w-full h-[calc(100%+40px)] -mt-[40px] object-cover">
+                        class="relative w-[290px] h-[590px] bg-gray-900 rounded-[3.2rem] shadow-[0_0_50px_rgba(0,210,193,0.2)] ring-2 ring-brand-teal/50 mb-6">
+                        <div class="absolute inset-[6px] bg-black rounded-[2.8rem] overflow-hidden">
+                            <div
+                                class="absolute top-4 left-1/2 -translate-x-1/2 w-[90px] h-[26px] bg-black rounded-full z-30">
+                            </div>
+                            <img src="assets/images/focus_screen.png" data-img="focus_screen"
+                                class="w-full h-full object-cover">
+                        </div>
                     </div>
-                    <h4 class="text-2xl font-bold text-brand-teal" data-i18n="showcase.focus">Derin Odaklanma</h4>
+                    <h4 class="font-display text-2xl font-bold text-brand-teal" data-i18n="showcase.focus">Derin
+                        Odaklanma</h4>
                     <p class="text-sm text-gray-400 text-center px-4 mt-2" data-i18n="showcase.focus.desc">Pomodoro
-                        tekniği ile dikkatini dağıtmadan
-                        hedefine kilitlen.</p>
+                        tekniği ile dikkatini dağıtmadan hedefine kilitlen.</p>
                 </div>
 
-                <!-- Image 3: Chat -->
-                <div class="flex flex-col items-center" data-aos="fade-left">
+                <!-- Image 3: Live Rooms (Replacing Chat) -->
+                <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Frame -->
                     <div
-                        class="w-[260px] h-[520px] border-[6px] border-gray-800 rounded-[2.5rem] overflow-hidden shadow-2xl mb-6">
-                        <img src="assets/images/chat_screen.png" data-img="chat_screen"
-                            class="w-full h-[calc(100%+40px)] -mt-[40px] object-cover">
+                        class="relative w-[270px] h-[560px] bg-gray-900 rounded-[3rem] shadow-2xl ring-2 ring-gray-700 mb-6">
+                        <div class="absolute inset-[6px] bg-black rounded-[2.6rem] overflow-hidden">
+                            <div
+                                class="absolute top-3 left-1/2 -translate-x-1/2 w-[80px] h-[24px] bg-black rounded-full z-30">
+                            </div>
+                            <img src="assets/images/mockup_live.png" data-img="chat_screen"
+                                class="w-full h-full object-cover">
+                        </div>
                     </div>
-                    <h4 class="text-xl font-bold" data-i18n="showcase.motivation">Sosyal Motivasyon</h4>
+                    <h4 class="font-display text-xl font-bold" data-i18n="showcase.motivation">Canlı Odalar</h4>
                     <p class="text-sm text-gray-500 text-center px-4 mt-2" data-i18n="showcase.motivation.desc">Grup
-                        sohbetleri ve liderlik tablolarıyla
-                        çalışma isteğini canlı tut.</p>
+                        sohbetleri ve liderlik tablolarıyla çalışma isteğini canlı tut.</p>
                 </div>
             </div>
         </div>
@@ -292,13 +426,14 @@
         </div>
 
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
+            <div class="text-center mb-16 reveal">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card mb-6 border-white/20">
                     <span class="text-xs font-bold text-white tracking-wide uppercase" data-i18n="ai.badge">Yapay Zeka
                         Destekli</span>
                 </div>
-                <h2 class="text-3xl md:text-5xl font-bold mb-6" data-i18n="ai.title">Sanal Koçunla <br><span
-                        class="text-brand-purple">Sınırları Zorla</span></h2>
+                <h2 class="font-display text-3xl md:text-5xl font-bold mb-6" data-i18n="ai.title">Sanal Koçunla
+                    <br><span class="text-purple-400">Sınırları Zorla</span>
+                </h2>
                 <p class="text-lg text-gray-400 max-w-2xl mx-auto" data-i18n="ai.subtitle">
                     Loofie AI; sana özel çalışır. Anlamadığın konuyu sor, senin için sınav hazırlasın veya
                     motivasyonun düştüğünde seni toparlasın.
@@ -310,70 +445,140 @@
                 <div class="group relative flex flex-col items-center" data-aos="fade-up" data-aos-delay="0">
                     <!-- Phone Mockup -->
                     <div
-                        class="relative w-[300px] h-[600px] border-[14px] border-gray-950 rounded-[3rem] bg-gray-950 shadow-2xl overflow-hidden ring-1 ring-white/20 z-10 transition-transform duration-500 hover:-translate-y-4">
+                        class="relative w-[300px] h-[620px] bg-gray-900 rounded-[3.5rem] shadow-2xl ring-2 ring-gray-700 overflow-hidden z-10 transition-transform duration-500 hover:-translate-y-4">
                         <!-- Screen Content -->
-                        <div class="absolute inset-0 bg-gray-900 rounded-[2.2rem] overflow-hidden">
-                            <!-- Image scaled up slightly and shifted up to hide status bar -->
-                            <img src="assets/images/ai_studio.png" data-img="ai_studio"
-                                class="w-full h-[105%] -mt-[30px] object-cover object-top">
+                        <div class="absolute inset-[8px] bg-black rounded-[3rem] overflow-hidden">
+                            <!-- Dynamic Island -->
+                            <div
+                                class="absolute top-4 left-1/2 -translate-x-1/2 w-[100px] h-[28px] bg-black rounded-full z-30">
+                            </div>
+                            <img src="assets/images/mockup_studio.png" data-img="ai_studio"
+                                class="w-full h-full object-cover">
                         </div>
 
                         <!-- Premium Glass Overlay -->
                         <div
                             class="absolute bottom-4 left-4 right-4 p-5 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10 shadow-lg">
-                            <h3 class="text-lg font-bold text-white mb-1" data-i18n="ai.studio">Akıllı Stüdyo</h3>
+                            <h3 class="font-display text-lg font-bold text-white mb-1" data-i18n="ai.studio">Akıllı
+                                Stüdyo</h3>
                             <p class="text-xs text-gray-300" data-i18n="ai.studio.desc">Tüm araçlar elinin altında.</p>
                         </div>
-                    </div>
-                    <!-- Glow Effect -->
-                    <div class="absolute inset-x-10 bottom-0 h-40 bg-brand-purple/40 blur-[60px] -z-10 opacity-60">
                     </div>
                 </div>
 
                 <!-- Feature 2: Chat (Center - Elevated) -->
                 <div class="group relative flex flex-col items-center lg:-mt-12" data-aos="fade-up"
-                    data-aos-delay="100">
+                    data-aos-delay="150">
                     <!-- Phone Mockup -->
                     <div
-                        class="relative w-[300px] h-[600px] border-[14px] border-gray-950 rounded-[3rem] bg-gray-950 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden ring-1 ring-brand-teal/50 z-20 transition-transform duration-500 hover:-translate-y-4">
-                        <!-- Dynamic Island Placeholder -->
-                        <div class="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full z-30"></div>
+                        class="relative w-[300px] h-[620px] bg-gray-900 rounded-[3.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden z-20 transition-transform duration-500 hover:-translate-y-4 ring-2 ring-brand-teal/50">
 
                         <!-- Screen Content -->
-                        <div class="absolute inset-0 bg-gray-900 rounded-[2.2rem] overflow-hidden">
-                            <img src="assets/images/ai_chat.png" data-img="ai_chat"
-                                class="w-full h-[105%] -mt-[30px] object-cover object-top">
+                        <div class="absolute inset-[8px] bg-black rounded-[3rem] overflow-hidden">
+                            <!-- Dynamic Island -->
+                            <div
+                                class="absolute top-4 left-1/2 -translate-x-1/2 w-[100px] h-[28px] bg-black rounded-full z-30">
+                            </div>
+                            <img src="assets/images/ai_chat.png" data-img="ai_chat" class="w-full h-full object-cover">
                         </div>
 
                         <div
                             class="absolute bottom-4 left-4 right-4 p-5 rounded-2xl bg-black/60 backdrop-blur-md border border-brand-teal/20 shadow-lg">
-                            <h3 class="text-lg font-bold text-brand-teal mb-1" data-i18n="ai.tutor">7/24 Özel Ders</h3>
+                            <h3 class="font-display text-lg font-bold text-brand-teal mb-1" data-i18n="ai.tutor">7/24
+                                Özel Ders</h3>
                             <p class="text-xs text-gray-300" data-i18n="ai.tutor.desc">Anında konu anlatımı.</p>
                         </div>
                     </div>
-                    <!-- Glow Effect -->
-                    <div class="absolute inset-x-10 bottom-0 h-40 bg-brand-teal/40 blur-[60px] -z-10 opacity-60"></div>
                 </div>
 
                 <!-- Feature 3: Exam -->
-                <div class="group relative flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="group relative flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
                     <!-- Phone Mockup -->
                     <div
-                        class="relative w-[300px] h-[600px] border-[14px] border-gray-950 rounded-[3rem] bg-gray-950 shadow-2xl overflow-hidden ring-1 ring-white/20 z-10 transition-transform duration-500 hover:-translate-y-4">
+                        class="relative w-[300px] h-[620px] bg-gray-900 rounded-[3.5rem] shadow-2xl overflow-hidden z-10 transition-transform duration-500 hover:-translate-y-4 ring-2 ring-gray-700">
                         <!-- Screen Content -->
-                        <div class="absolute inset-0 bg-gray-900 rounded-[2.2rem] overflow-hidden">
-                            <img src="assets/images/ai_exam.png" data-img="ai_exam"
-                                class="w-full h-[105%] -mt-[30px] object-cover object-top">
+                        <div class="absolute inset-[8px] bg-black rounded-[3rem] overflow-hidden">
+                            <!-- Dynamic Island -->
+                            <div
+                                class="absolute top-4 left-1/2 -translate-x-1/2 w-[100px] h-[28px] bg-black rounded-full z-30">
+                            </div>
+                            <img src="assets/images/mockup_exam.png" data-img="ai_exam"
+                                class="w-full h-full object-cover">
                         </div>
 
                         <div
                             class="absolute bottom-4 left-4 right-4 p-5 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10 shadow-lg">
-                            <h3 class="text-lg font-bold text-white mb-1" data-i18n="ai.bank">Soru Bankası</h3>
+                            <h3 class="font-display text-lg font-bold text-white mb-1" data-i18n="ai.bank">Soru Bankası
+                            </h3>
                             <p class="text-xs text-gray-300" data-i18n="ai.bank.desc">Saniyeler içinde sınav ol.</p>
                         </div>
                     </div>
-                    <!-- Glow Effect -->
-                    <div class="absolute inset-x-10 bottom-0 h-40 bg-blue-500/30 blur-[60px] -z-10 opacity-60"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Reviews -->
+    <section class="py-24 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">Onlar Başardı,
+                    <span class="text-teal-300">Sıra Sende</span>
+                </h2>
+                <p class="text-gray-400">Binlerce öğrenci disiplini Loofie ile sağladı.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="glass-card p-6 rotate-1 hover:rotate-0 transition-transform duration-300" data-aos="fade-up"
+                    data-aos-delay="0">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold">
+                            Z</div>
+                        <div>
+                            <div class="font-bold text-white">Zeynep K.</div>
+                            <div class="text-xs text-teal-300">Hukuk Fakültesi Öğrencisi
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">"Pomodoro sayacı ve todo listesi bir
+                        arada olunca başka uygulamaya
+                        gerek kalmadı. Özellikle gece modu gözümü yormuyor."</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="glass-card p-6 -rotate-1 hover:rotate-0 transition-transform duration-300"
+                    data-aos="fade-up" data-aos-delay="150">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-br from-teal-400 to-emerald-500 flex items-center justify-center text-white font-bold">
+                            M</div>
+                        <div>
+                            <div class="font-bold text-white">Mert Y.</div>
+                            <div class="text-xs text-teal-300">Tıp Fakültesi Öğrencisi</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">"AI koçun sınav hazırlama özelliği
+                        inanılmaz. Konuyu çalışıp hemen
+                        kendimi test ediyorum. Netlerim arttı."</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="glass-card p-6 rotate-1 hover:rotate-0 transition-transform duration-300" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-white font-bold">
+                            E</div>
+                        <div>
+                            <div class="font-bold text-white">Elif S.</div>
+                            <div class="text-xs text-teal-300">Lise Son Sınıf</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">"Çalışma grupları sayesinde yalnız
+                        hissetmiyorum. Herkes çalışırken
+                        sen de çalışmak istiyorsun. Motivasyon kaynağım."</p>
                 </div>
             </div>
         </div>
@@ -382,15 +587,46 @@
     <!-- Footer -->
     <footer class="py-12 border-t border-white/5 text-center">
         <p class="text-gray-500 mb-4" data-i18n="footer.rights">Loofie © 2025</p>
-        <div class="flex justify-center gap-6 text-sm text-gray-600">
-            <a href="privacy.html" class="hover:text-white" data-i18n="footer.privacy">Gizlilik</a>
-            <a href="mailto:support@loofie.app" class="hover:text-white" data-i18n="footer.support">Destek & Öneri</a>
-        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/lang.js"></script>
-    <script>AOS.init({ once: true, offset: 50, duration: 800 });</script>
+    <script>
+        AOS.init({
+            once: false,
+            mirror: true,
+            offset: 100,
+            duration: 1000,
+            easing: 'ease-out-cubic'
+        });
+
+        // Global Spotlight & Card Spotlight Logic
+        const spotlight = document.getElementById('global-spotlight');
+
+        document.addEventListener('mousemove', e => {
+            const x = e.clientX;
+            const y = e.clientY;
+
+            // Global Spotlight
+            spotlight.style.setProperty('--mouse-x', `${x}px`);
+            spotlight.style.setProperty('--mouse-y', `${y}px`);
+            spotlight.style.opacity = '1';
+
+            // Card Spotlight (Relative to card)
+            document.querySelectorAll('.glass-card').forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const cardX = x - rect.left;
+                const cardY = y - rect.top;
+                card.style.setProperty('--mouse-x', `${cardX}px`);
+                card.style.setProperty('--mouse-y', `${cardY}px`);
+            });
+        });
+
+        // Hide global spotlight when mouse leaves window
+        document.addEventListener('mouseleave', () => {
+            spotlight.style.opacity = '0';
+        });
+    </script>
 </body>
 
 </html>
