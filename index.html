@@ -81,28 +81,6 @@
             overflow: hidden;
         }
 
-        /* Spotlight Gradient Overlay */
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: inherit;
-            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-                    rgba(255, 255, 255, 0.08),
-                    transparent 40%);
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
-        }
-
-        .glass-card:hover::before {
-            opacity: 1;
-        }
-
         /* Ensure content is above spotlight */
         .glass-card>* {
             position: relative;
@@ -151,15 +129,6 @@
             50% {
                 transform: translate(20px, -20px);
             }
-        }
-
-        #global-spotlight {
-            background: radial-gradient(100px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-                    rgba(139, 92, 246, 0.25),
-                    /* Opacity 0.25 */
-                    transparent 50%);
-            pointer-events: none;
-            mix-blend-mode: screen;
         }
     </style>
 </head>
@@ -588,40 +557,14 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/lang.js"></script>
     <script>
-        AOS.init({
-            once: false,
-            mirror: true,
-            offset: 100,
-            duration: 1000,
-            easing: 'ease-out-cubic'
-        });
-
-        // Global Spotlight & Card Spotlight Logic
-        const spotlight = document.getElementById('global-spotlight');
-
-        document.addEventListener('mousemove', e => {
-            const x = e.clientX;
-            const y = e.clientY;
-
-            // Global Spotlight
-            spotlight.style.setProperty('--mouse-x', `${x}px`);
-            spotlight.style.setProperty('--mouse-y', `${y}px`);
-            spotlight.style.opacity = '1';
-
-            // Card Spotlight (Relative to card)
-            document.querySelectorAll('.glass-card').forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const cardX = x - rect.left;
-                const cardY = y - rect.top;
-                card.style.setProperty('--mouse-x', `${cardX}px`);
-                card.style.setProperty('--mouse-y', `${cardY}px`);
+            < script >
+            AOS.init({
+                once: false,
+                mirror: true,
+                offset: 100,
+                duration: 1000,
+                easing: 'ease-out-cubic'
             });
-        });
-
-        // Hide global spotlight when mouse leaves window
-        document.addEventListener('mouseleave', () => {
-            spotlight.style.opacity = '0';
-        });
     </script>
 </body>
 
