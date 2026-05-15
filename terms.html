@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="tr" data-locale="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f7f6f0" />
+  <title>Loofie | Kullanım Şartları</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { porcelain: "#f7f6f0", paper: "#fefcf7", ink: "#171917", muted: "#62675f", cedar: "#286f5a", hairline: "#ddd8cb" }, fontFamily: { sora: ['Sora','sans-serif'], manrope: ['Manrope','sans-serif'], mono: ['JetBrains Mono','monospace'] } } }
+    }
+  </script>
+  <style>
+    @media(pointer:fine){body,a,button{cursor:none}}
+    body{background:#f7f6f0;color:#171917;font-family:'Manrope',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    body::after{content:"";position:fixed;inset:0;z-index:9990;opacity:.03;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    .cursor{position:fixed;top:0;left:0;width:12px;height:12px;background:#286f5a;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);transition:width .4s cubic-bezier(.32,.72,0,1),height .4s cubic-bezier(.32,.72,0,1),background-color .4s}
+    .cursor.h{width:48px;height:48px;background:rgba(255,255,255,0.1);backdrop-filter:blur(4px);border-color:#286f5a}
+    .nav-pill{background:rgba(23,25,23,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.1)}
+    .ease-fluid{transition:all .65s cubic-bezier(.32,.72,0,1)}
+    
+    .prose h2 { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1rem; color: #171917; letter-spacing: -0.02em; }
+    .prose p { margin-bottom: 1.25rem; color: #62675f; line-height: 1.8; }
+    .prose ul { margin-bottom: 1.5rem; padding-left: 1.5rem; color: #62675f; list-style-type: none; }
+    .prose ul li { position: relative; margin-bottom: 0.5rem; }
+    .prose ul li::before { content: ""; position: absolute; left: -1.2rem; top: 0.6rem; width: 6px; height: 6px; border-radius: 50%; background-color: #286f5a; }
+  </style>
+</head>
+<body class="selection:bg-cedar selection:text-paper">
+
+  <div class="cursor hidden md:block" id="cur"></div>
+
+  <!-- ─── NAV ─── -->
+  <nav class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-500 w-full max-w-5xl mx-auto" id="navbar">
+    <div class="nav-pill w-full rounded-full px-6 py-3.5 flex items-center justify-between shadow-2xl">
+      <!-- Logo -->
+      <a href="index.html" class="flex-shrink-0 ml-2 group" data-h>
+        <div class="font-sora font-extrabold text-[22px] tracking-tighter text-white/90 group-hover:text-white transition-colors">Loofie</div>
+      </a>
+      <!-- Center links -->
+      <div class="hidden md:flex items-center gap-8 text-paper/70 text-[11px] uppercase tracking-[0.2em] font-mono font-semibold">
+        <a href="privacy.html" class="hover:text-white ease-fluid" data-h data-i18n="nav.privacy">Gizlilik</a>
+        <a href="terms.html" class="hover:text-white ease-fluid" data-h data-i18n="nav.terms">Kullanım Şartları</a>
+      </div>
+      <!-- Right actions -->
+      <div class="flex items-center gap-4">
+        <div class="flex items-center bg-white/10 p-1 rounded-full cursor-pointer group hover:bg-white/15 ease-fluid" id="locale-btn" data-h>
+          <div class="px-2.5 py-1 rounded-full text-[10px] font-bold font-mono tracking-widest transition-all duration-300 bg-white text-ink" id="lang-tr">TR</div>
+          <div class="px-2.5 py-1 rounded-full text-[10px] font-bold font-mono tracking-widest transition-all duration-300 text-paper/50" id="lang-en">EN</div>
+        </div>
+        <a href="index.html" class="bg-white text-ink px-6 py-2.5 rounded-full font-sora font-bold text-xs md:text-sm flex items-center gap-2 group ease-fluid hover:bg-gray-100 hover:scale-105 active:scale-95" data-h>
+          <span data-i18n="nav.home">Ana Sayfa</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── HEADER ─── -->
+  <header class="pt-40 pb-16 px-4 text-center max-w-3xl mx-auto">
+    <span class="inline-block px-3 py-1 bg-cedar/10 text-cedar font-mono text-xs font-bold uppercase tracking-widest rounded-md mb-6" data-i18n="tag.legal">Yasal Bilgi</span>
+    <h1 class="font-sora font-extrabold text-[clamp(2.5rem,5vw,4rem)] leading-[1.1] tracking-tight text-ink mb-6" data-i18n="title">Kullanım Şartları</h1>
+    <p class="text-muted text-lg md:text-xl" data-i18n="subtitle">Loofie uygulamasını indirerek veya kullanarak, bu şartları otomatik olarak kabul etmiş olursunuz.</p>
+    <div class="mt-8 flex justify-center gap-6 text-sm font-mono text-muted/70">
+      <span data-i18n="date">Son Güncelleme: 16 Mayıs 2026</span>
+    </div>
+  </header>
+
+  <!-- ─── CONTENT ─── -->
+  <main class="max-w-4xl mx-auto px-4 pb-32">
+    <div class="bg-paper border border-hairline rounded-[2.5rem] p-8 md:p-16 shadow-[0_20px_40px_rgba(0,0,0,0.03)] prose max-w-none">
+      
+      <h2 data-i18n="s1.title">1. Genel Hükümler</h2>
+      <p data-i18n="s1.p">Bu Son Kullanıcı Lisans Sözleşmesi, Loofie uygulaması ve sağlanan hizmetlerin kullanım şartlarını belirler. Hizmeti kullanarak bu sözleşmenin tamamını kabul etmiş sayılırsınız. Uygulama, Apple Inc. veya Google LLC gibi üçüncü taraf platform sağlayıcılarının değil, doğrudan tarafımızca lisanslanmaktadır.</p>
+
+      <h2 data-i18n="s2.title">2. Lisans Kapsamı</h2>
+      <p data-i18n="s2.p">Size, kişisel, ticari olmayan kullanımınız için uygulamayı indirip kullanabileceğiniz sınırlı, geri alınabilir, münhasır olmayan, devredilemez bir lisans verilmektedir.</p>
+      <ul>
+        <li data-i18n="s2.l1">Uygulamanın kaynak kodunu kopyalayamaz, değiştiremez veya tersine mühendislik yapamazsınız.</li>
+        <li data-i18n="s2.l2">Uygulamayı üçüncü şahıslara kiralayamaz, dağıtamaz veya alt lisansını veremezsiniz.</li>
+        <li data-i18n="s2.l3">Hizmeti yasa dışı amaçlarla veya başkalarının haklarını ihlal edecek şekilde kullanamazsınız.</li>
+      </ul>
+
+      <h2 data-i18n="s3.title">3. Abonelik ve Ödemeler</h2>
+      <p data-i18n="s3.p">Loofie bazı içerik veya özelliklere erişim için otomatik yenilenen abonelik seçenekleri sunabilir:</p>
+      <ul>
+        <li data-i18n="s3.l1"><strong>Ödeme:</strong> Ödemeler, satın alma onayı ile birlikte Apple ID (App Store) veya Google hesabı üzerinden tahsil edilecektir.</li>
+        <li data-i18n="s3.l2"><strong>Otomatik Yenileme:</strong> Mevcut fatura döneminin bitiminden en az 24 saat önce otomatik yenileme kapatılmadığı sürece abonelikler otomatik olarak yenilenir.</li>
+        <li data-i18n="s3.l3"><strong>İptal ve İade:</strong> Abonelikleri dilediğiniz zaman App Store veya Google Play hesap ayarlarınızdan iptal edebilirsiniz. İptal işlemi, mevcut fatura döneminin sonunda geçerli olur. İadeler yalnızca ilgili platformun (Apple veya Google) iade politikalarına göre yönetilir.</li>
+      </ul>
+
+      <h2 data-i18n="s4.title">4. Kullanıcı İçeriği ve Etkileşim</h2>
+      <p data-i18n="s4.p">Uygulama içi sosyal özelliklerde (Canlı Odalar vb.) sağladığınız içeriklerin (kullanıcı adları, hedefler) sorumluluğu tamamen size aittir. Sakıncalı içerikler (küfür, zorbalık, yasa dışı materyaller) paylaşmak veya bu tür davranışlarda bulunmak yasaktır. Bu tür içerikleri tespit etme ve kullanıcı hesaplarını bildirim yapmaksızın askıya alma veya kalıcı olarak silme hakkımızı saklı tutarız.</p>
+      <ul>
+        <li data-i18n="s4.l1">Kötüye kullanım tespit edildiğinde, kullanıcının uygulamaya erişimi engellenir.</li>
+        <li data-i18n="s4.l2">Şikayet mekanizması ile diğer kullanıcıların şüpheli davranışları bildirilebilir. Gelen şikayetler incelenir ve 24 saat içinde gerekli aksiyon (içerik kaldırma/hesap askıya alma) alınır.</li>
+      </ul>
+
+      <h2 data-i18n="s5.title">5. Fikri Mülkiyet Hakları</h2>
+      <p data-i18n="s5.p">Loofie logosu, tasarımı, kodları ve içindeki tüm materyaller telif hakları ile korunmaktadır. Uygulama içerisindeki hiçbir görsel veya kod izinsiz kullanılamaz.</p>
+
+      <h2 data-i18n="s6.title">6. Sorumluluk Reddi</h2>
+      <p data-i18n="s6.p">Loofie, "olduğu gibi" ve "mevcut haliyle" sunulmaktadır. Hizmetin kesintisiz, hatasız veya %100 güvenli olacağına dair herhangi bir garanti vermiyoruz. Apple ve Google, uygulama ile ilgili bakım ve destek hizmeti sağlama yükümlülüğüne sahip değildir.</p>
+
+      <h2 data-i18n="s7.title">7. İletişim</h2>
+      <p data-i18n="s7.p">Bu sözleşme hakkında herhangi bir sorunuz varsa bize ulaşabilirsiniz:</p>
+      <p><a href="mailto:support@loofie.app" class="font-bold text-cedar hover:underline">support@loofie.app</a></p>
+
+    </div>
+  </main>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="bg-ink text-paper py-12 px-4 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-paper/40 text-xs font-mono">
+      <p data-i18n="footer.copy">&copy; 2026 Loofie. Tüm Hakları Saklıdır.</p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="terms.html" class="hover:text-paper ease-fluid" data-h data-i18n="nav.terms">Kullanım Şartları</a>
+        <a href="privacy.html" class="hover:text-paper ease-fluid" data-h data-i18n="nav.privacy">Gizlilik Politikası</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const copy = {
+      tr: {
+        "nav.privacy": "Gizlilik",
+        "nav.terms": "Kullanım Şartları",
+        "nav.home": "Ana Sayfa",
+        "tag.legal": "Yasal Bilgi",
+        "title": "Kullanım Şartları",
+        "subtitle": "Loofie uygulamasını indirerek veya kullanarak, bu şartları otomatik olarak kabul etmiş olursunuz.",
+        "date": "Son Güncelleme: 16 Mayıs 2026",
+        "s1.title": "1. Genel Hükümler",
+        "s1.p": "Bu Son Kullanıcı Lisans Sözleşmesi, Loofie uygulaması ve sağlanan hizmetlerin kullanım şartlarını belirler. Hizmeti kullanarak bu sözleşmenin tamamını kabul etmiş sayılırsınız. Uygulama, Apple Inc. veya Google LLC gibi üçüncü taraf platform sağlayıcılarının değil, doğrudan tarafımızca lisanslanmaktadır.",
+        "s2.title": "2. Lisans Kapsamı",
+        "s2.p": "Size, kişisel, ticari olmayan kullanımınız için uygulamayı indirip kullanabileceğiniz sınırlı, geri alınabilir, münhasır olmayan, devredilemez bir lisans verilmektedir.",
+        "s2.l1": "Uygulamanın kaynak kodunu kopyalayamaz, değiştiremez veya tersine mühendislik yapamazsınız.",
+        "s2.l2": "Uygulamayı üçüncü şahıslara kiralayamaz, dağıtamaz veya alt lisansını veremezsiniz.",
+        "s2.l3": "Hizmeti yasa dışı amaçlarla veya başkalarının haklarını ihlal edecek şekilde kullanamazsınız.",
+        "s3.title": "3. Abonelik ve Ödemeler",
+        "s3.p": "Loofie bazı içerik veya özelliklere erişim için otomatik yenilenen abonelik seçenekleri sunabilir:",
+        "s3.l1": "<strong>Ödeme:</strong> Ödemeler, satın alma onayı ile birlikte Apple ID (App Store) veya Google hesabı üzerinden tahsil edilecektir.",
+        "s3.l2": "<strong>Otomatik Yenileme:</strong> Mevcut fatura döneminin bitiminden en az 24 saat önce otomatik yenileme kapatılmadığı sürece abonelikler otomatik olarak yenilenir.",
+        "s3.l3": "<strong>İptal ve İade:</strong> Abonelikleri dilediğiniz zaman App Store veya Google Play hesap ayarlarınızdan iptal edebilirsiniz. İptal işlemi, mevcut fatura döneminin sonunda geçerli olur. İadeler yalnızca ilgili platformun (Apple veya Google) iade politikalarına göre yönetilir.",
+        "s4.title": "4. Kullanıcı İçeriği ve Etkileşim",
+        "s4.p": "Uygulama içi sosyal özelliklerde (Canlı Odalar vb.) sağladığınız içeriklerin (kullanıcı adları, hedefler) sorumluluğu tamamen size aittir. Sakıncalı içerikler (küfür, zorbalık, yasa dışı materyaller) paylaşmak veya bu tür davranışlarda bulunmak yasaktır. Bu tür içerikleri tespit etme ve kullanıcı hesaplarını bildirim yapmaksızın askıya alma veya kalıcı olarak silme hakkımızı saklı tutarız.",
+        "s4.l1": "Kötüye kullanım tespit edildiğinde, kullanıcının uygulamaya erişimi engellenir.",
+        "s4.l2": "Şikayet mekanizması ile diğer kullanıcıların şüpheli davranışları bildirilebilir. Gelen şikayetler incelenir ve 24 saat içinde gerekli aksiyon (içerik kaldırma/hesap askıya alma) alınır.",
+        "s5.title": "5. Fikri Mülkiyet Hakları",
+        "s5.p": "Loofie logosu, tasarımı, kodları ve içindeki tüm materyaller telif hakları ile korunmaktadır. Uygulama içerisindeki hiçbir görsel veya kod izinsiz kullanılamaz.",
+        "s6.title": "6. Sorumluluk Reddi",
+        "s6.p": "Loofie, \"olduğu gibi\" ve \"mevcut haliyle\" sunulmaktadır. Hizmetin kesintisiz, hatasız veya %100 güvenli olacağına dair herhangi bir garanti vermiyoruz. Apple ve Google, uygulama ile ilgili bakım ve destek hizmeti sağlama yükümlülüğüne sahip değildir.",
+        "s7.title": "7. İletişim",
+        "s7.p": "Bu sözleşme hakkında herhangi bir sorunuz varsa bize ulaşabilirsiniz:",
+        "footer.copy": "© 2026 Loofie. Tüm Hakları Saklıdır."
+      },
+      en: {
+        "nav.privacy": "Privacy",
+        "nav.terms": "Terms of Use",
+        "nav.home": "Home",
+        "tag.legal": "Legal Information",
+        "title": "Terms of Use",
+        "subtitle": "By downloading or using the Loofie application, you automatically agree to these terms.",
+        "date": "Last Updated: May 16, 2026",
+        "s1.title": "1. General Provisions",
+        "s1.p": "This End User License Agreement determines the terms of use for the Loofie application and its services. By using the service, you are deemed to have accepted this entire agreement. The app is licensed directly by us, not by third-party platform providers like Apple Inc. or Google LLC.",
+        "s2.title": "2. Scope of License",
+        "s2.p": "You are granted a limited, revocable, non-exclusive, non-transferable license to download and use the application for your personal, non-commercial use.",
+        "s2.l1": "You may not copy, modify, or reverse engineer the application's source code.",
+        "s2.l2": "You may not rent, distribute, or sub-license the application to third parties.",
+        "s2.l3": "You may not use the service for illegal purposes or in a way that violates the rights of others.",
+        "s3.title": "3. Subscriptions and Payments",
+        "s3.p": "Loofie may offer auto-renewing subscription options for access to certain content or features:",
+        "s3.l1": "<strong>Payment:</strong> Payments will be charged to your Apple ID (App Store) or Google account upon confirmation of purchase.",
+        "s3.l2": "<strong>Auto-Renewal:</strong> Subscriptions automatically renew unless auto-renew is turned off at least 24 hours before the end of the current billing period.",
+        "s3.l3": "<strong>Cancellation and Refunds:</strong> You can cancel subscriptions at any time through your App Store or Google Play account settings. Cancellations take effect at the end of the current billing period. Refunds are managed solely according to the respective platform's (Apple or Google) refund policies.",
+        "s4.title": "4. User Content and Interaction",
+        "s4.p": "You are entirely responsible for the content (usernames, goals) you provide in in-app social features (Live Rooms, etc.). Sharing objectionable content (profanity, bullying, illegal materials) or engaging in such behavior is prohibited. We reserve the right to detect such content and suspend or permanently delete user accounts without notice.",
+        "s4.l1": "If abuse is detected, the user's access to the application will be blocked.",
+        "s4.l2": "Suspicious behavior by other users can be reported via the reporting mechanism. Incoming reports are reviewed, and necessary action (content removal/account suspension) is taken within 24 hours.",
+        "s5.title": "5. Intellectual Property Rights",
+        "s5.p": "The Loofie logo, design, code, and all included materials are protected by copyright. No images or code within the application may be used without permission.",
+        "s6.title": "6. Disclaimer of Warranties",
+        "s6.p": "Loofie is provided \"as is\" and \"as available.\" We do not guarantee that the service will be uninterrupted, error-free, or 100% secure. Apple and Google have no obligation to furnish any maintenance and support services with respect to the application.",
+        "s7.title": "7. Contact",
+        "s7.p": "If you have any questions about this agreement, you can contact us:",
+        "footer.copy": "© 2026 Loofie. All Rights Reserved."
+      }
+    };
+
+    const root = document.documentElement;
+    const localeBtn = document.getElementById('locale-btn');
+
+    function setLocale(l) {
+      const d = copy[l] || copy.tr;
+      root.lang = l;
+      root.dataset.locale = l;
+      document.querySelectorAll('[data-i18n]').forEach(n => {
+        const v = d[n.dataset.i18n];
+        if (v) n.innerHTML = v;
+      });
+      
+      const trEl = document.getElementById('lang-tr');
+      const enEl = document.getElementById('lang-en');
+      if(trEl && enEl) {
+        if(l === 'tr') {
+          trEl.className = 'px-2.5 py-1 rounded-full text-[10px] font-bold font-mono tracking-widest transition-all duration-300 bg-white text-ink';
+          enEl.className = 'px-2.5 py-1 rounded-full text-[10px] font-bold font-mono tracking-widest transition-all duration-300 text-paper/50';
+        } else {
+          enEl.className = 'px-2.5 py-1 rounded-full text-[10px] font-bold font-mono tracking-widest transition-all duration-300 bg-white text-ink';
+          trEl.className = 'px-2.5 py-1 rounded-full text-[10px] font-bold font-mono tracking-widest transition-all duration-300 text-paper/50';
+        }
+      }
+      localStorage.setItem('loofie:locale', l);
+    }
+
+    localeBtn.addEventListener('click', () => setLocale(root.dataset.locale === 'tr' ? 'en' : 'tr'));
+    
+    // Init language from local storage
+    const saved = localStorage.getItem('loofie:locale');
+    setLocale(saved || ((navigator.language || 'tr').toLowerCase().startsWith('tr') ? 'tr' : 'en'));
+
+    // ─── Cursor ───
+    const cur = document.getElementById('cur');
+    if(window.matchMedia('(pointer:fine)').matches){
+      document.addEventListener('mousemove', e => {
+        cur.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`
+      });
+      document.querySelectorAll('[data-h]').forEach(el => {
+        el.addEventListener('mouseenter', () => cur.classList.add('h'));
+        el.addEventListener('mouseleave', () => cur.classList.remove('h'));
+      });
+    }
+  </script>
+</body>
+</html>

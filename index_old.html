@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loofie | Masaya Dönmenin Sakin Yolu</title>
+    <meta name="description" content="Loofie; odak oturumlarını, alışkanlıkları, grup çalışmasını ve Studio tekrar araçlarını sakin bir çalışma ritmine toplar.">
+    <meta name="keywords" content="Loofie, pomodoro, alışkanlık takibi, odaklanma, çalışma uygulaması, study coach">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Ahmet Atmaca">
+    <link rel="canonical" href="https://loofie.app/">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://loofie.app/">
+    <meta property="og:title" content="Loofie | Masaya Dönmenin Sakin Yolu">
+    <meta property="og:description" content="Odak, alışkanlık, grup ve Studio araçları için sakin bir çalışma ritmi.">
+    <meta property="og:image" content="https://loofie.app/assets/images/favicon.svg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Loofie | A Calmer Way Back To The Desk">
+    <meta name="twitter:description" content="Focus sessions, habits, group rooms, and Studio tools in one quiet study rhythm.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Manrope:wght@400;500;600&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --porcelain: #f7f6f0;
+            --paper: #fefcf7;
+            --paper-muted: #ece8dd;
+            --ink: #171917;
+            --muted: #62675f;
+            --hairline: #ddd8cb;
+            --cedar: #286f5a;
+            --cedar-deep: #174c3d;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--porcelain);
+            color: var(--ink);
+            font-family: 'Manrope', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Subtle tactile grain */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        /*
+         * Typography Architecture
+         * Takram / Kenya Hara philosophy: Let the negative space speak.
+         */
+        h1, h2, h3, h4 {
+            font-family: 'Sora', sans-serif;
+            margin: 0;
+            letter-spacing: -0.04em;
+            color: var(--ink);
+        }
+
+        p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .container {
+            width: min(1200px, 100% - 48px);
+            margin: 0 auto;
+        }
+
+        /*
+         * Navigation
+         */
+        .nav-wrapper {
+            position: fixed;
+            top: 24px;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: min(1200px, 100% - 48px);
+            margin: 0 auto;
+            padding: 12px 16px 12px 20px;
+            background: rgba(254, 252, 247, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(221, 216, 203, 0.6);
+            box-shadow: 0 12px 40px -12px rgba(23, 25, 23, 0.08);
+            pointer-events: auto;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            transition: opacity 0.2s;
+        }
+
+        .brand:hover {
+            opacity: 0.8;
+        }
+
+        .brand img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-lang {
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: var(--paper-muted);
+            color: var(--cedar-deep);
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: transform 0.2s var(--ease-out-spring), background 0.2s;
+        }
+
+        .btn-lang:hover {
+            background: #e4dfd0;
+            transform: scale(0.96);
+        }
+
+        .btn-primary {
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: var(--cedar);
+            color: var(--paper);
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: transform 0.2s var(--ease-out-spring), background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--cedar-deep);
+            transform: scale(0.96);
+        }
+
+        /*
+         * Hero Section
+         */
+        .hero {
+            padding: 24vh 0 12vh;
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8vw;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 580px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--cedar);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.05;
+            margin-bottom: 32px;
+            text-wrap: balance;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+            max-width: 480px;
+            margin-bottom: 48px;
+            text-wrap: pretty;
+        }
+
+        /*
+         * App Screen (Device Frame)
+         * Using real screenshots wrapped in a minimalist bezel
+         */
+        .device-frame {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            border-radius: 44px;
+            padding: 8px;
+            background: var(--ink);
+            box-shadow:
+                0 40px 120px -20px rgba(40, 111, 90, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.15);
+            /* Tilt effect for Takram / Build aesthetic */
+            transform: perspective(1000px) rotateY(-8deg) rotateX(4deg) rotateZ(-2deg);
+            transition: transform 0.6s var(--ease-out-expo);
+        }
+
+        .device-frame:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+        }
+
+        .device-screen {
+            border-radius: 36px;
+            overflow: hidden;
+            background: var(--paper);
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .device-screen img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /*
+         * Alternating Sections
+         */
+        .section {
+            padding: 16vh 0;
+            position: relative;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100%;
+            background: var(--hairline);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .split-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10vw;
+            align-items: center;
+        }
+
+        .split-row.reversed .text-col {
+            order: 2;
+        }
+
+        .split-row.reversed .visual-col {
+            order: 1;
+        }
+
+        .step-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--hairline);
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .split-row h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-wrap: balance;
+        }
+
+        .split-row p {
+            font-size: clamp(1.05rem, 1.2vw, 1.15rem);
+            max-width: 420px;
+        }
+
+        /* Float variants for devices */
+        .float-1 { transform: translateY(0); }
+        .float-2 { transform: translateY(20px); }
+        .float-3 { transform: perspective(1000px) rotateY(5deg) rotateX(2deg); }
+
+        /*
+         * CTA / Footer
+         */
+        .cta-section {
+            padding: 20vh 0 10vh;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-wrap: balance;
+        }
+
+        .footer {
+            border-top: 1px solid var(--hairline);
+            padding: 40px 0;
+            margin-top: 10vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--muted);
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a:hover {
+            color: var(--ink);
+        }
+
+        /*
+         * Scroll Reveals (Motion Choreography)
+         */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
+            will-change: transform, opacity;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        /*
+         * Language Toggles
+         */
+        html[data-locale="en"] [data-lang="tr"] { display: none !important; }
+        html[data-locale="tr"] [data-lang="en"] { display: none !important; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-grid, .split-row {
+                grid-template-columns: 1fr;
+                gap: 64px;
+            }
+
+            .split-row.reversed .text-col,
+            .split-row.reversed .visual-col {
+                order: unset;
+            }
+
+            .section::before {
+                display: none;
+            }
+
+            .device-frame {
+                transform: none;
+            }
+
+            .hero {
+                padding: 16vh 0 8vh;
+                text-align: center;
+            }
+
+            .hero-content {
+                margin: 0 auto;
+            }
+
+            .hero p {
+                margin: 0 auto 40px;
+            }
+
+            .text-col {
+                text-align: center;
+            }
+
+            .split-row p {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer {
+                flex-direction: column;
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body data-locale="tr">
+
+    <div class="nav-wrapper">
+        <nav class="nav">
+            <a href="#" class="brand">
+                <img src="assets/images/favicon.svg" alt="Loofie Logo">
+                loofie
+            </a>
+            <div class="nav-actions">
+                <button class="btn-lang" id="langToggle">EN</button>
+                <a href="#download" class="btn-primary" data-lang="tr">İndir</a>
+                <a href="#download" class="btn-primary" data-lang="en">Download</a>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content reveal">
+                    <span class="eyebrow" data-lang="tr">Quiet Signal Study System</span>
+                    <span class="eyebrow" data-lang="en">Quiet Signal Study System</span>
+
+                    <h1 data-lang="tr">Masaya dönmek ayrı bir iş olmasın.</h1>
+                    <h1 data-lang="en">Getting back to the desk shouldn't be a task.</h1>
+
+                    <p data-lang="tr">Loofie, çalışma gününü ekran kalabalığına değil, okunabilir bir ritme çevirir. Odak oturumu, alışkanlık, grup odası ve tekrar araçları aynı yüzeyde kalır.</p>
+                    <p data-lang="en">Loofie turns the study day into a readable rhythm, not a wall of screens. Focus sessions, habits, group rooms, and review tools stay on the same surface.</p>
+
+                    <a href="#download" class="btn-primary" data-lang="tr">Uygulamayı İndir</a>
+                    <a href="#download" class="btn-primary" data-lang="en">Get the App</a>
+                </div>
+
+                <div class="visual-col reveal delay-2">
+                    <div class="device-frame">
+                        <picture class="device-screen">
+                            <img src="assets/images/focus-tr.png" alt="Loofie Focus Screen" data-lang="tr">
+                            <img src="assets/images/focus-en.png" alt="Loofie Focus Screen" data-lang="en">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 1: HABITS -->
+        <section class="section">
+            <div class="container split-row reversed">
+                <div class="text-col reveal">
+                    <span class="step-num">01 — Günü Aç</span>
+                    <h2 data-lang="tr">Günü açınca nereden başlayacağını gör.</h2>
+                    <h2 data-lang="en">Open the day and see where to start.</h2>
+
+                    <p data-lang="tr">Alışkanlık, hedef ve sıradaki oturum dağınık sekmelerden çıkıp tek bakışta okunur. Karar vermekle zaman kaybetmezsin.</p>
+                    <p data-lang="en">Habits, goals, and the next session leave scattered tabs and become readable at a glance. No more wasting time deciding.</p>
+                </div>
+                <div class="visual-col reveal delay-1">
+                    <div class="device-frame float-1">
+                        <picture class="device-screen">
+                            <img src="assets/images/habits-tr.png" alt="Loofie Habits Screen" data-lang="tr">
+                            <img src="assets/images/habits-en.png" alt="Loofie Habits Screen" data-lang="en">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: FOCUS -->
+        <section class="section">
+            <div class="container split-row">
+                <div class="text-col reveal">
+                    <span class="step-num">02 — Odaklan</span>
+                    <h2 data-lang="tr">Süre, görev ve mod aynı yüzeyde kalsın.</h2>
+                    <h2 data-lang="en">Keep time, task, and mode on one surface.</h2>
+
+                    <p data-lang="tr">Pomodoro burada bir dekor değil; başlamayı küçülten, kararsızlığı kesen net bir çalışma enstrümanıdır.</p>
+                    <p data-lang="en">Pomodoro is not decoration here. It is a clear study instrument that makes starting smaller and cuts decision fatigue.</p>
+                </div>
+                <div class="visual-col reveal delay-1">
+                    <div class="device-frame float-2">
+                        <picture class="device-screen">
+                            <img src="assets/images/focus-tr.png" alt="Loofie Focus Screen" data-lang="tr">
+                            <img src="assets/images/focus-en.png" alt="Loofie Focus Screen" data-lang="en">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: STUDIO -->
+        <section class="section">
+            <div class="container split-row reversed">
+                <div class="text-col reveal">
+                    <span class="step-num">03 — Studio</span>
+                    <h2 data-lang="tr">AI sahneye çıkmaz. Tezgahta çalışır.</h2>
+                    <h2 data-lang="en">AI doesn't take the stage. It works at the bench.</h2>
+
+                    <p data-lang="tr">Studio, dikkat çekmek için konuşan bir bot değil. Konuyu quiz'e, notu flashcard'a çeviren sakin üretim katmanıdır.</p>
+                    <p data-lang="en">Studio is not a bot trying to impress. It turns topics into quizzes and notes into flashcards—a quiet production layer.</p>
+                </div>
+                <div class="visual-col reveal delay-1">
+                    <div class="device-frame float-3">
+                        <picture class="device-screen">
+                            <img src="assets/images/studio-tr.png" alt="Loofie Studio Screen" data-lang="tr">
+                            <img src="assets/images/studio-en.png" alt="Loofie Studio Screen" data-lang="en">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: LIVE -->
+        <section class="section">
+            <div class="container split-row">
+                <div class="text-col reveal">
+                    <span class="step-num">04 — Ritmi Koru</span>
+                    <h2 data-lang="tr">Yalnız değilsin ama izlenmiyorsun.</h2>
+                    <h2 data-lang="en">You aren't alone, and you aren't watched.</h2>
+
+                    <p data-lang="tr">Grup odaları performans baskısı kurmadan, aynı anda çalışan insanların sakin varlığını ve ritmini gösterir.</p>
+                    <p data-lang="en">Group rooms show the calm presence of people working at the same time, without performance pressure.</p>
+                </div>
+                <div class="visual-col reveal delay-1">
+                    <div class="device-frame float-1">
+                        <picture class="device-screen">
+                            <img src="assets/images/live-tr.png" alt="Loofie Live Groups Screen" data-lang="tr">
+                            <img src="assets/images/live-en.png" alt="Loofie Live Groups Screen" data-lang="en">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section" id="download">
+            <div class="container reveal">
+                <h2 data-lang="tr">Bugünün ritmini dağılmadan başlat.</h2>
+                <h2 data-lang="en">Start today's rhythm before it scatters.</h2>
+
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://apps.apple.com/app/id6756845874" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: var(--ink); color: var(--paper);">App Store</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.attmaca.loofie" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: var(--ink); color: var(--paper);">Google Play</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container footer">
+        <div>&copy; 2026 Loofie.</div>
+        <div class="footer-links">
+            <a href="privacy.html" data-lang="tr">Gizlilik Politikası</a>
+            <a href="privacy.html" data-lang="en">Privacy Policy</a>
+            <a href="mailto:support@loofie.app" data-lang="tr">Destek</a>
+            <a href="mailto:support@loofie.app" data-lang="en">Support</a>
+        </div>
+    </footer>
+
+    <script>
+        // Language Toggle Logic
+        (function() {
+            const root = document.documentElement;
+            const btn = document.getElementById('langToggle');
+            const saved = localStorage.getItem('loofie-lang');
+            let current = (saved === 'en' || saved === 'tr') ? saved : 'tr';
+
+            function applyLang(lang) {
+                current = lang;
+                root.dataset.locale = lang;
+                root.lang = lang;
+                localStorage.setItem('loofie-lang', lang);
+                btn.textContent = lang === 'tr' ? 'EN' : 'TR';
+                document.title = lang === 'tr' ? 'Loofie | Masaya Dönmenin Sakin Yolu' : 'Loofie | A Calmer Way Back To The Desk';
+            }
+
+            btn.addEventListener('click', () => {
+                applyLang(current === 'tr' ? 'en' : 'tr');
+            });
+
+            applyLang(current);
+        })();
+
+        // Scroll Intersection Observer for CSS Reveals
+        (function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Optional: observer.unobserve(entry.target) to trigger only once
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px 0px -10% 0px',
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        })();
+    </script>
+</body>
+</html>
